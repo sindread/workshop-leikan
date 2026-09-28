@@ -230,3 +230,5 @@ node_modules/
 
 # Lokal konfig for hook-verktøy
 .impeccable/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
