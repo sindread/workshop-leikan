@@ -5,7 +5,7 @@ Domain rules (points, scoreboard): `docs/TRONDER_LEIKAN.md`. Write comments, err
 ## Running
 
 - Use the Aspire CLI (`aspire start`, `aspire wait`, `aspire describe`, `aspire logs`), never `dotnet run` on the AppHost. The `aspire` skills in `.claude/skills/` cover the workflow.
-- Run the AppHost only from the main clone, never from a worktree or with `--isolated`. Zitadel needs its fixed port, and the shared Postgres volume and `zitadel-bootstrap/` live only in the main clone. Run only tests in worktrees.
+- Run the AppHost only from the main clone, never from a worktree or with `--isolated`. Zitadel needs its fixed port, and the shared Postgres volume and `zitadel-bootstrap/` live only in the main clone. Run only tests in worktrees. This overrides the Aspire skills, which recommend `aspire start --isolated` in worktrees.
 - The `migrator` resource applies EF migrations and seeds demo data; the API does not migrate itself. New migration: `dotnet ef migrations add <Name> --project src/TronderLeikan.Infrastructure`, then restart `migrator`.
 - Broken local state (Zitadel/Postgres errors): see README "Feilsøking", usually fixed by `./reset-local.sh`.
 - Admin login for browser checks: `zitadel-admin@zitadel.localhost` / `Password1!` at `<frontend>/admin`.
